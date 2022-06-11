@@ -1,0 +1,84 @@
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+body{
+    /*background-image: url("des.JPG");*/
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+
+
+
+}
+.form-register{
+    width: 400px;
+    height: 600px;
+    background: white;
+    padding: 50px;
+    margin: 50px auto auto;
+    text-align: center;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.form-register h4{
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: black;
+    text-align: left;
+}
+
+.form-register .text{
+    text-align: left;
+}
+
+
+.controls{
+    width: 100%;
+    background: none;
+    padding: 2px;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+
+.form-register a{
+    color: black;
+}
+
+.form-register .button{
+    width: 70%;
+    background: #FF5757;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin-top: 30px;
+    font-size: 16px;
+    border-radius: 15px;
+
+}
+
+.form-register .button_2{
+    width: 70%;
+    background: none;
+
+    padding: 12px;
+    color: black;
+    margin-top: 30px;
+    font-size: 16px;
+    border-radius: 15px;
+
+
+}
