@@ -60,9 +60,17 @@ header {
   background: linear-gradient(90deg, rgb(18, 146, 223) 0%, rgb(22, 83, 187) 50%, rgb(238, 63, 237) 100%);
 }
 
+.user-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .menu {
   display: flex;
   flex-direction: row;
+  align-items: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -92,7 +100,7 @@ header {
 .menu-button::before,
 .menu-button::after {
   display: block;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   position: absolute;
   height: 4px;
   width: 30px;
@@ -116,7 +124,7 @@ header {
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button {
-  background: rgba(0, 0, 0, 0);
+  background: rgba(255, 255, 255, 0);
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button::after {
@@ -319,27 +327,23 @@ header {
     padding: 0;
     border: 0;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    background: rgb(18, 146, 223);
+    background: linear-gradient(90deg, rgb(18, 146, 223) 0%, rgb(22, 83, 187) 50%, rgb(238, 63, 237) 100%);
   }
 
   #menu-toggle:checked ~ .menu li {
-    border: 1px solid #333;
-    height: 2.5em;
-    padding: 0.5em;
+    height: 2.7em;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .menu > li {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0.5em 0;
     width: 100%;
     color: white;
-    background-color: #222;
-  }
-
-  .menu > li:not(:last-child) {
-    border-bottom: 1px solid #444;
   }
 }
 @media (min-width: 870px) {
