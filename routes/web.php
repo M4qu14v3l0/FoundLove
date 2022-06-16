@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home_layout', [App\Http\Controllers\HomeController::class, 'index'])-> name('homeLayout');
+Route::get('/settings_layout', [App\Http\Controllers\SettingsController::class, 'index'])-> name('settingsLayout');
 Route::get('/crud', [App\Http\Controllers\UserController::class, 'index']);
 Route::get('/crud/create', [App\Http\Controllers\UserController::class, 'create']);
 Route::post('/crud/insert', [App\Http\Controllers\UserController::class, 'insert']);

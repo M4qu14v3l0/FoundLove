@@ -13,11 +13,7 @@
                         <div class='menu-button'></div>
                     </label>
                     <ul class="menu">
-                        <li><a href=""><img src="{{asset(('pictures/user-picture/Bradd.jpg'))}}" alt="" class="user-profile"></a></li>
-                        <li><a>One</a></li>
-                        <li>Three</li>
-                        <li>Four</li>
-                        <li>Five</li>
+                        <li><a href="{{url('../settings_layout')}}"><img src="{{asset(('pictures/user-picture/Bradd.jpg'))}}" alt="" class="user-profile"></a></li>
                     </ul>
                 </section>
 
