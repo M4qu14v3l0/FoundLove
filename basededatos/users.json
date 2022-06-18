@@ -1,0 +1,8 @@
+{ 
+    "_id" : ObjectId("62acd64fdb1700003f007ee2"), 
+    "name" : "sebastian navarro", 
+    "email" : "sebastian.navarro@tecsup.edu.pe", 
+    "password" : "$2y$10$sHqcMnQiqAuvSCf6SshH3uoyZPA6plWApNcS8Pdyibo5lplEzAhSK", 
+    "updated_at" : ISODate("2022-06-17T19:30:23.259+0000"), 
+    "created_at" : ISODate("2022-06-17T19:30:23.259+0000")
+}

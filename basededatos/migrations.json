@@ -1,0 +1,65 @@
+{ 
+    "_id" : ObjectId("62acd60ccc3200002e003db2"), 
+    "migration" : "2014_10_12_000000_create_users_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60ccc3200002e003db3"), 
+    "migration" : "2014_10_12_100000_create_password_resets_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60dcc3200002e003db4"), 
+    "migration" : "2019_08_19_000000_create_failed_jobs_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60dcc3200002e003db5"), 
+    "migration" : "2019_12_14_000001_create_personal_access_tokens_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60dcc3200002e003db6"), 
+    "migration" : "2022_06_10_052622_create_photos_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60dcc3200002e003db7"), 
+    "migration" : "2022_06_10_052820_create_chats_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60ecc3200002e003db9"), 
+    "migration" : "2022_06_10_053023_create_regions_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60ecc3200002e003dbb"), 
+    "migration" : "2022_06_10_053036_create_countries_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60ecc3200002e003dbc"), 
+    "migration" : "2022_06_10_053101_create_interests_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60ecc3200002e003dbd"), 
+    "migration" : "2022_06_10_053122_create_traits_lists_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60fcc3200002e003dbe"), 
+    "migration" : "2022_06_10_055104_create_social_networks_lists_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60fcc3200002e003dbf"), 
+    "migration" : "2022_06_10_055124_create_social_networks_table", 
+    "batch" : NumberInt(1)
+}
+{ 
+    "_id" : ObjectId("62acd60fcc3200002e003dc0"), 
+    "migration" : "2022_06_10_201224_create_cities_table", 
+    "batch" : NumberInt(1)
+}
