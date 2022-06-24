@@ -1,7 +1,7 @@
 @extends('layouts.homeLayout')
 @section('general-wrapper')
 
-    <div class="general-wrapper">
+    <div class="general-wrapper " id="app">
         <header>
             <nav>
                 <section class="top-nav">
@@ -39,6 +39,8 @@
 
 
         <main>
+
+
             <div class="main-wrapper">
                 <section class="user-first-info">
                     <div class="profile-wrapper">

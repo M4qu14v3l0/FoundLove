@@ -25,4 +25,5 @@ Route::post('/crud/insert', [App\Http\Controllers\UserController::class, 'insert
 Route::get('/crud/{id}/edit', [App\Http\Controllers\UserController::class, 'edit']);
 Route::post('/crud/update/{id}', [App\Http\Controllers\UserController::class, 'update']);
 Route::get('/crud/{id}/delete', [App\Http\Controllers\UserController::class, 'delete']);
-
+Route::get('/crud/export', [App\Http\Controllers\UserController::class, 'export']);
+Route::get('/crud/exportPDF', [App\Http\Controllers\UserController::class, 'exportPDF']);

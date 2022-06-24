@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Exports\UserExport;
+use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 use Illuminate\Http\Request;
 
@@ -43,6 +46,16 @@ class UserController extends Controller
         $userEdited -> delete();
         return redirect('/crud');
 
+    }
+
+    public function export(){
+        return Excel::download(new UserExport, 'users.xlsx');
+    }
+
+    public function exportPDF(){
+        $user = user::all();
+        $pdf = PDF::loadView('pdf\users',['user'=>$user]);
+        return $pdf-> download('user.pdf');
     }
 
 

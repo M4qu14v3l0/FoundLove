@@ -8,7 +8,7 @@
 
     <!-- styles sheet !-->
 
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/principal.css')}}">
 
     <!-- font awesome !-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -19,7 +19,7 @@
 
 <body>
     <div class="general-wrapper-layout">
-        @yield('general-wrapper')
+            @yield('general-wrapper')
     </div>
     <script type="text/javascript" src="{{URL::asset('js/userInfo.js')}}"></script>
 </body>

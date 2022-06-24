@@ -2,6 +2,7 @@
 @section('container-crud')
     FoundLove's users
     <a href="crud/create" type="button" class="btn btn-outline-primary ">Add</a>
+    <a href="/crud/export" type="button" class="btn btn-outline-primary ">Export</a>
     <table class="table table-striped">
         <thead>
         <tr>
