@@ -41,9 +41,9 @@ class UserController extends Controller
     }
 
     public function  delete(Request $request , $id){
-        $userEdited = user::find($id);
+        $userDelete = user::find($id);
 
-        $userEdited -> delete();
+        $userDelete -> delete();
         return redirect('/crud');
 
     }
@@ -58,6 +58,10 @@ class UserController extends Controller
         return $pdf-> download('user.pdf');
     }
 
+<<<<<<< HEAD
 
 
 }
+=======
+}
+>>>>>>> c8be5a4971cebe8bad3fd8e370e9f2d942ec6b00
