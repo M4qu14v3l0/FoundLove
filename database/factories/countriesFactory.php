@@ -17,4 +17,8 @@ class countriesFactory extends Factory
             'country' => "Peru"
         ];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9ee65978fd616e3544f83fff25716d047ae9cbf2

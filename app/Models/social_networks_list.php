@@ -14,4 +14,8 @@ class social_networks_list extends Model
     protected $fillable = [
         'social_network',
     ];
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9ee65978fd616e3544f83fff25716d047ae9cbf2
