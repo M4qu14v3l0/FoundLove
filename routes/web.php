@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('app');
 });
 
+
+Route::get('/welcome/{phone}', [App\Http\Controllers\ApiController::class, 'messageApi']);
 Route::get('/home_layout', [App\Http\Controllers\HomeController::class, 'index'])-> name('homeLayout');
 Route::get('/settings_layout', [App\Http\Controllers\SettingsController::class, 'index'])-> name('settingsLayout');
 Route::get('/crud', [App\Http\Controllers\UserController::class, 'index']);
