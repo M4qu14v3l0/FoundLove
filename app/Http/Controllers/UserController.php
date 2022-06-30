@@ -61,5 +61,8 @@ class UserController extends Controller
         $pdf = PDF::loadView('pdf\users',['user'=>$user]);
         return $pdf-> download('user.pdf');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 48a56c040cfb2e3e14b5b65e5cefc5520d5fc7c9
 }
