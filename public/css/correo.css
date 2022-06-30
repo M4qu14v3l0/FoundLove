@@ -10,7 +10,7 @@ html, body {
     font-family: 'Nunito', sans-serif;
 }
 body{
-    /*background-image: url("fondo6.png");*/
+    background-image: url("imagenfondo.jpg");
     height: 700px;
     background-size: cover;
     background-position: center;
@@ -79,6 +79,4 @@ body{
     margin-top: 30px;
     font-size: 16px;
     border-radius: 15px;
-
-
 }

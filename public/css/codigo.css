@@ -10,7 +10,7 @@ html, body {
     font-family: 'Nunito', sans-serif;
 }
 body{
-    /*background-image: url("des.JPG");*/
+    background-image: url("imagenfondo.jpg");
     height: 700px;
     background-size: cover;
     background-position: center;
