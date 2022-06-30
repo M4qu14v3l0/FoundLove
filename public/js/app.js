@@ -5486,6 +5486,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5495,8 +5545,22 @@ __webpack_require__.r(__webpack_exports__);
         initials: 'JD',
         fullName: 'John Doe',
         email: 'john.doe@doe.com'
-      }
+      },
+      users: [],
+      hidden: true
     };
+  },
+  methods: {
+    getUsers: function getUsers() {
+      var _this = this;
+
+      axios.get('/api/users').then(function (response) {
+        _this.users = response.data.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getUsers();
   }
 });
 
@@ -5525,6 +5589,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.js */ "./resources/js/components/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -5580,27 +5655,172 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+ //import MinHeap from "./index.js";
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      items: [{
-        src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-      }, {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-      }, {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg'
-      }, {
-        src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-      }],
-      users: null
+      step: 1,
+      value: 1,
+      user: {
+        initials: 'JD',
+        fullName: 'John Doe',
+        email: 'john.doe@doe.com'
+      },
+      users: [],
+      hidden: true,
+      valueList: []
     };
   },
-  mounted: function mounted() {
-    var _this = this;
+  methods: {
+    getUsers: function getUsers() {
+      var _this = this;
 
-    axios.get('/api/users').then(function (response) {
-      _this.users = response.data.data;
-    });
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get('/api/users').then(function (response) {
+        _this.users = response.data.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      var response, obj1, array_edades, i;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _this2.getUsers(); //axios.get("http://127.0.0.1:8000/users/age").then((result) => {
+
+
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get('http://127.0.0.1:8000/users/age');
+
+            case 3:
+              response = _context.sent;
+              //this.skills = response
+              //console.log(result.data);
+              _this2.valueList = response.data;
+              obj1 = new _index_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+              array_edades = [11, 23, 34, 32, 35, 23, 50, 58, 10]; //console.log(array_edades)
+              //console.log(this.valueList)
+
+              for (i in _this2.valueList) {
+                obj1.insert(_this2.valueList[i].age);
+              } //console.log(array_edades)
+
+
+              console.log(obj1.storage);
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
   }
 });
 
@@ -5753,6 +5973,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vuetify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vuetify */ "./resources/js/vuetify.js");
+/* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -5761,6 +5982,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -5822,6 +6044,151 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/index.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ MinHeap)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+var MinHeap = /*#__PURE__*/function () {
+  function MinHeap() {
+    _classCallCheck(this, MinHeap);
+
+    this.storage = [];
+    this.size = 0;
+  }
+
+  _createClass(MinHeap, [{
+    key: "getLeftChildIndex",
+    value: function getLeftChildIndex(index) {
+      return 2 * index + 1;
+    }
+  }, {
+    key: "getRightChildIndex",
+    value: function getRightChildIndex(index) {
+      return 2 * index + 2;
+    }
+  }, {
+    key: "getParentIndex",
+    value: function getParentIndex(index) {
+      return Math.floor((index - 1) / 2);
+    }
+  }, {
+    key: "hasLeftChild",
+    value: function hasLeftChild(index) {
+      return this.getLeftChildIndex(index) < this.size;
+    }
+  }, {
+    key: "hasRightChild",
+    value: function hasRightChild(index) {
+      return this.getRightChildIndex(index) < this.size;
+    }
+  }, {
+    key: "hasParent",
+    value: function hasParent(index) {
+      return this.getParentIndex(index) >= 0;
+    }
+  }, {
+    key: "leftChild",
+    value: function leftChild(index) {
+      return this.storage[this.getLeftChildIndex(index)];
+    }
+  }, {
+    key: "rightChild",
+    value: function rightChild(index) {
+      return this.storage[this.getRightChildIndex(index)];
+    }
+  }, {
+    key: "parent",
+    value: function parent(index) {
+      return this.storage[this.getParentIndex(index)];
+    }
+  }, {
+    key: "isFull",
+    value: function isFull() {
+      return this.size == this.capacity;
+    }
+  }, {
+    key: "swap",
+    value: function swap(index1, index2) {
+      var temp = this.storage[index1];
+      this.storage[index1] = this.storage[index2];
+      this.storage[index2] = temp;
+    }
+  }, {
+    key: "removeMin",
+    value: function removeMin() {
+      if (this.size == 0) throw new Error("Empty Heap");
+      var data = this.storage[0];
+      this.storage[0] = this.storage[this.size - 1];
+      this.size -= 1;
+      this.heapifyDown(0);
+      return data;
+    }
+  }, {
+    key: "heapifyDown",
+    value: function heapifyDown(index) {
+      var smallest = index;
+      if (this.hasLeftChild(index) && this.storage[smallest] > this.leftChild(index)) smallest = this.getLeftChildIndex(index);
+      if (this.hasRightChild(index) && this.storage[smallest] > this.rightChild(index)) smallest = this.getRightChildIndex(index);
+
+      if (smallest != index) {
+        this.swap(index, smallest);
+        this.heapifyDown(smallest);
+      }
+    }
+  }, {
+    key: "insert",
+    value: function insert(data) {
+      this.storage[this.size] = data;
+      this.size += 1;
+      this.heapifyUp(this.size - 1);
+    }
+  }, {
+    key: "heapifyUp",
+    value: function heapifyUp(index) {
+      if (this.hasParent(index) && this.parent(index) > this.storage[index]) {
+        this.swap(index, this.getParentIndex(index));
+        this.heapifyUp(this.getParentIndex(index));
+      }
+    }
+  }]);
+
+  return MinHeap;
+}(); //obj1 = new MinHeap();
+//let valueList = [11 , 23 , 34 , 32 , 35 , 23 , 50 , 58 , 10] 
+// for( i in valueList){
+//     obj1.insert(valueList[i]);
+// }
+//let newList = []
+//for(i in valueList){
+//    newList.push(obj1.insert(valueList[i]))
+//}
+//console.log(newList)
+//console.log(obj1.storage)
+// parent index --> 
+//  [ (index - 1) / 2] 
+//  left child index -->
+// 2 * index + 1
+// right child index --> 
+// 2 * index + 2
+
+
+
 
 /***/ }),
 
@@ -29031,7 +29398,7 @@ var render = function () {
             background:
               "linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%, rgba(239,69,244,1) 100%)",
           },
-          attrs: { app: "", color: "#2a6fff", height: "80vh" },
+          attrs: { app: "", color: "#2a6fff", height: "60vh" },
         },
         [
           _c(
@@ -29056,7 +29423,7 @@ var render = function () {
                             "v-btn",
                             _vm._g(
                               {
-                                staticClass: "mb-0 mx-3",
+                                staticClass: "mb-0 mx-0",
                                 attrs: { icon: "", "x-large": "" },
                               },
                               on
@@ -29064,7 +29431,7 @@ var render = function () {
                             [
                               _c(
                                 "v-avatar",
-                                { attrs: { color: "brown", size: "60" } },
+                                { attrs: { color: "brown", size: "50" } },
                                 [
                                   _c("img", {
                                     attrs: {
@@ -29192,7 +29559,7 @@ var render = function () {
                 [
                   _c(
                     "v-col",
-                    { attrs: { cols: "12", sm: "3" } },
+                    { staticClass: "my-6", attrs: { cols: "12", sm: "3" } },
                     [
                       _c(
                         "v-sheet",
@@ -29209,157 +29576,235 @@ var render = function () {
                     { attrs: { cols: "12", sm: "6" } },
                     [
                       _c(
-                        "v-sheet",
-                        { attrs: { "min-height": "80vh", rounded: "lg" } },
-                        [
-                          _c(
-                            "v-window",
-                            {
-                              model: {
-                                value: _vm.step,
-                                callback: function ($$v) {
-                                  _vm.step = $$v
-                                },
-                                expression: "step",
-                              },
+                        "v-window",
+                        {
+                          model: {
+                            value: _vm.step,
+                            callback: function ($$v) {
+                              _vm.step = $$v
                             },
-                            [
-                              _c(
-                                "v-window-item",
-                                { attrs: { value: 1 } },
-                                [_c("card-component")],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-window-item",
-                                { attrs: { value: 2 } },
-                                [_c("card-component")],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-window-item",
-                                { attrs: { value: 3 } },
-                                [_c("card-component")],
-                                1
-                              ),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
+                            expression: "step",
+                          },
+                        },
+                        _vm._l(_vm.users, function (user, i) {
+                          return _c(
                             "div",
-                            { staticClass: "text-center" },
                             [
                               _c(
-                                "v-btn",
-                                {
-                                  staticClass: "mx-0",
-                                  attrs: {
-                                    fab: "",
-                                    large: "",
-                                    color: "#C5E1A5",
-                                    disabled: _vm.step === 1,
-                                  },
-                                  on: {
-                                    click: function ($event) {
-                                      _vm.step--
-                                    },
-                                  },
-                                },
+                                "v-window-item",
+                                { key: i, attrs: { value: i } },
                                 [
-                                  _c("v-icon", { attrs: { color: "white" } }, [
-                                    _vm._v(
-                                      "\n                              mdi-arrow-left\n                      "
-                                    ),
-                                  ]),
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-btn",
-                                {
-                                  staticClass: "mx-1",
-                                  attrs: {
-                                    fab: "",
-                                    large: "",
-                                    color: "#ff5094",
-                                    disabled: _vm.step === 4,
-                                  },
-                                  on: {
-                                    click: function ($event) {
-                                      _vm.step++
+                                  _c(
+                                    "v-card",
+                                    {
+                                      staticClass: "mx-auto my-6",
+                                      attrs: { "max-width": "375" },
                                     },
-                                  },
-                                },
-                                [
-                                  _c("v-icon", { attrs: { color: "white" } }, [
-                                    _vm._v(
-                                      "\n                              mdi-window-close\n                      "
-                                    ),
-                                  ]),
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-btn",
-                                {
-                                  staticClass: "mx-1",
-                                  attrs: {
-                                    fab: "",
-                                    large: "",
-                                    color: "#50bdff",
-                                    disabled: _vm.step === 4,
-                                  },
-                                  on: {
-                                    click: function ($event) {
-                                      _vm.step++
-                                    },
-                                  },
-                                },
-                                [
-                                  _c("v-icon", { attrs: { color: "white" } }, [
-                                    _vm._v(
-                                      "\n                              mdi-check\n                      "
-                                    ),
-                                  ]),
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "v-btn",
-                                {
-                                  staticClass: "mx-1",
-                                  attrs: {
-                                    disabled: _vm.step === 4,
-                                    large: "",
-                                    fab: "",
-                                    color: "#cc5cff",
-                                  },
-                                  on: {
-                                    click: function ($event) {
-                                      _vm.step++
-                                    },
-                                  },
-                                },
-                                [
-                                  _c("v-icon", { attrs: { color: "white" } }, [
-                                    _vm._v(
-                                      "\n                              mdi-heart\n                      "
-                                    ),
-                                  ]),
+                                    [
+                                      _c(
+                                        "v-carousel",
+                                        {
+                                          attrs: {
+                                            "hide-delimiters": "",
+                                            height: "400",
+                                          },
+                                        },
+                                        [
+                                          _c("v-carousel-item", {
+                                            key: i,
+                                            attrs: { src: user.photo },
+                                          }),
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "v-card-title",
+                                        [
+                                          _vm._v(
+                                            _vm._s(user.name) +
+                                              " " +
+                                              _vm._s(user.age) +
+                                              "\n\n                      "
+                                          ),
+                                          _c(
+                                            "v-btn",
+                                            {
+                                              attrs: {
+                                                color: "secondary",
+                                                fab: "",
+                                                absolute: "",
+                                                small: "",
+                                                right: "",
+                                              },
+                                              on: {
+                                                click: function ($event) {
+                                                  _vm.hidden = !_vm.hidden
+                                                },
+                                              },
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                        " +
+                                                  _vm._s(
+                                                    _vm.hidden ? "Show" : "Show"
+                                                  ) +
+                                                  "\n                      "
+                                              ),
+                                            ]
+                                          ),
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          directives: [
+                                            {
+                                              name: "show",
+                                              rawName: "v-show",
+                                              value: !_vm.hidden,
+                                              expression: "!hidden",
+                                            },
+                                          ],
+                                        },
+                                        [
+                                          _c("v-card-text", [
+                                            _c("div", [
+                                              _vm._v(_vm._s(user.chats)),
+                                            ]),
+                                          ]),
+                                          _vm._v(" "),
+                                          _c(
+                                            "v-card-text",
+                                            [
+                                              _c(
+                                                "v-chip-group",
+                                                [
+                                                  _c("v-chip", [
+                                                    _vm._v(
+                                                      _vm._s(user.interests)
+                                                    ),
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("v-chip", [
+                                                    _vm._v(_vm._s(user.sex)),
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "v-chip",
+                                                    [
+                                                      _c(
+                                                        "v-icon",
+                                                        {
+                                                          attrs: { small: "" },
+                                                        },
+                                                        [_vm._v("mdi-heart")]
+                                                      ),
+                                                      _vm._v(
+                                                        " " +
+                                                          _vm._s(
+                                                            user.likes_recived
+                                                          ) +
+                                                          " "
+                                                      ),
+                                                    ],
+                                                    1
+                                                  ),
+                                                ],
+                                                1
+                                              ),
+                                            ],
+                                            1
+                                          ),
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("v-card-text", [
+                                        _c(
+                                          "div",
+                                          { staticClass: "text-center" },
+                                          [
+                                            _c(
+                                              "v-btn",
+                                              {
+                                                staticClass: "mx-1",
+                                                attrs: {
+                                                  fab: "",
+                                                  large: "",
+                                                  color: "#ff5094",
+                                                  disabled:
+                                                    _vm.step ===
+                                                    _vm.users.length,
+                                                },
+                                                on: {
+                                                  click: function ($event) {
+                                                    _vm.step++
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                _c(
+                                                  "v-icon",
+                                                  { attrs: { color: "white" } },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                mdi-window-close\n                        "
+                                                    ),
+                                                  ]
+                                                ),
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "v-btn",
+                                              {
+                                                staticClass: "mx-1",
+                                                attrs: {
+                                                  disabled:
+                                                    _vm.step ===
+                                                    _vm.users.length,
+                                                  large: "",
+                                                  fab: "",
+                                                  color: "#cc5cff",
+                                                },
+                                                on: {
+                                                  click: function ($event) {
+                                                    _vm.step++
+                                                  },
+                                                },
+                                              },
+                                              [
+                                                _c(
+                                                  "v-icon",
+                                                  { attrs: { color: "white" } },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                                mdi-heart\n                        "
+                                                    ),
+                                                  ]
+                                                ),
+                                              ],
+                                              1
+                                            ),
+                                          ],
+                                          1
+                                        ),
+                                      ]),
+                                    ],
+                                    1
+                                  ),
                                 ],
                                 1
                               ),
                             ],
                             1
-                          ),
-                        ],
-                        1
+                          )
+                        }),
+                        0
                       ),
                     ],
                     1
@@ -29450,76 +29895,259 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-card",
-    {
-      staticClass: "mx-auto my-6",
-      attrs: { loading: _vm.loading, "max-width": "374" },
-    },
+    "v-app",
+    { attrs: { id: "inspire" } },
     [
       _c(
-        "template",
-        { slot: "progress" },
-        [
-          _c("v-progress-linear", {
-            attrs: { color: "deep-purple", height: "10", indeterminate: "" },
-          }),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-carousel",
-        { attrs: { "hide-delimiters": "", height: "400" } },
-        _vm._l(_vm.items, function (item, i) {
-          return _c("v-carousel-item", { key: i, attrs: { src: item.src } })
-        }),
-        1
-      ),
-      _vm._v(" "),
-      _c("v-card-title", [_vm._v("Roberto Aguirre")]),
-      _vm._v(" "),
-      _c("v-card-text", [
-        _c("div", [
-          _vm._v(
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut laboriosam error vitae quo voluptatum ad consequuntur inventore, quia consequatur."
-          ),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c(
-        "v-card-text",
+        "v-app-bar",
+        {
+          staticStyle: {
+            background:
+              "linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%, rgba(239,69,244,1) 100%)",
+          },
+          attrs: { app: "", color: "#2a6fff", height: "60vh" },
+        },
         [
           _c(
-            "v-chip-group",
-            {
-              attrs: {
-                "active-class": "deep-purple accent-4 white--text",
-                column: "",
-              },
-              model: {
-                value: _vm.selection,
-                callback: function ($$v) {
-                  _vm.selection = $$v
-                },
-                expression: "selection",
-              },
-            },
+            "v-row",
             [
-              _c("v-chip", [_vm._v("Eat")]),
-              _vm._v(" "),
-              _c("v-chip", [_vm._v("Drink")]),
-              _vm._v(" "),
-              _c("v-chip", [_vm._v("Watch TV")]),
-              _vm._v(" "),
-              _c("v-chip", [_vm._v("Cycling")]),
+              _c(
+                "v-menu",
+                {
+                  attrs: {
+                    bottom: "",
+                    "min-width": "200px",
+                    rounded: "",
+                    "offset-y": "",
+                  },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "activator",
+                      fn: function (ref) {
+                        var on = ref.on
+                        return [
+                          _c(
+                            "v-btn",
+                            _vm._g(
+                              {
+                                staticClass: "mb-0 mx-0",
+                                attrs: { icon: "", "x-large": "" },
+                              },
+                              on
+                            ),
+                            [
+                              _c(
+                                "v-avatar",
+                                { attrs: { color: "brown", size: "50" } },
+                                [
+                                  _c("img", {
+                                    attrs: {
+                                      src: "https://cdn.vuetifyjs.com/images/john.jpg",
+                                      alt: "John",
+                                    },
+                                  }),
+                                ]
+                              ),
+                            ],
+                            1
+                          ),
+                        ]
+                      },
+                    },
+                  ]),
+                },
+                [
+                  _vm._v(" "),
+                  _c(
+                    "v-card",
+                    [
+                      _c(
+                        "v-list-item-content",
+                        { staticClass: "justify-center" },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "mx-auto text-center" },
+                            [
+                              _c("v-avatar", { attrs: { color: "brown" } }, [
+                                _c(
+                                  "span",
+                                  { staticClass: "white--text text-h5" },
+                                  [_vm._v(_vm._s(_vm.user.initials))]
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("h3", [_vm._v(_vm._s(_vm.user.fullName))]),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "text-caption mt-1" }, [
+                                _vm._v(
+                                  "\r\n                    " +
+                                    _vm._s(_vm.user.email) +
+                                    "\r\n                  "
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c("v-divider", { staticClass: "my-3" }),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    depressed: "",
+                                    rounded: "",
+                                    text: "",
+                                  },
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticStyle: {
+                                        "text-decoration": "none",
+                                      },
+                                      attrs: { href: "../settings_layout" },
+                                    },
+                                    [_vm._v("Edit Account")]
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("v-divider", { staticClass: "my-3" }),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: {
+                                    depressed: "",
+                                    rounded: "",
+                                    text: "",
+                                  },
+                                },
+                                [
+                                  _vm._v(
+                                    "\r\n                    Disconnect\r\n                  "
+                                  ),
+                                ]
+                              ),
+                            ],
+                            1
+                          ),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
             ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            { staticClass: "mx-1", attrs: { icon: "", dark: "", large: "" } },
+            [_c("v-icon", [_vm._v("mdi-bell")])],
             1
           ),
         ],
         1
       ),
+      _vm._v(" "),
+      _c("v-main", [
+        _c(
+          "div",
+          { staticClass: "d-flex justify-space-around" },
+          _vm._l(3, function (n) {
+            return _c(
+              "div",
+              [
+                _c(
+                  "v-card",
+                  { attrs: { "max-width": "374" } },
+                  [
+                    _c(
+                      "template",
+                      { slot: "progress" },
+                      [
+                        _c("v-progress-linear", {
+                          attrs: {
+                            color: "deep-purple",
+                            height: "10",
+                            indeterminate: "",
+                          },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "v-carousel",
+                      { attrs: { "hide-delimiters": "", height: "400" } },
+                      _vm._l(_vm.items, function (item, i) {
+                        return _c("v-carousel-item", {
+                          key: i,
+                          attrs: { src: item.src },
+                        })
+                      }),
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("v-card-title", [_vm._v("Rodrigo Vargas")]),
+                    _vm._v(" "),
+                    _c("v-card-text", [
+                      _c("div", [
+                        _vm._v(
+                          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut laboriosam error vitae quo voluptatum ad consequuntur inventore, quia consequatur."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-text",
+                      [
+                        _c(
+                          "v-chip-group",
+                          {
+                            attrs: {
+                              "active-class":
+                                "deep-purple accent-4 white--text",
+                              column: "",
+                            },
+                            model: {
+                              value: _vm.selection,
+                              callback: function ($$v) {
+                                _vm.selection = $$v
+                              },
+                              expression: "selection",
+                            },
+                          },
+                          [
+                            _c("v-chip", [_vm._v("Eat")]),
+                            _vm._v(" "),
+                            _c("v-chip", [_vm._v("Drink")]),
+                            _vm._v(" "),
+                            _c("v-chip", [_vm._v("Watch TV")]),
+                            _vm._v(" "),
+                            _c("v-chip", [_vm._v("Cycling")]),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ],
+                  2
+                ),
+              ],
+              1
+            )
+          }),
+          0
+        ),
+      ]),
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []

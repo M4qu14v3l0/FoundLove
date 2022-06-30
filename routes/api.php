@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\UserResource;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('users','UserController');
+//Route::apiResource('users','UserController');
+Route::get('users', [App\Http\Controllers\UserController::class, 'index']);
+
+Route::get('/users', function (){
+    return UserResource::collection(User::all());
+});

@@ -5,7 +5,7 @@
       <v-app-bar 
         app 
         color="#2a6fff" 
-        height="80vh" 
+        height="60vh" 
         style="background: rgb(42,193,255);
 background: linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%, rgba(239,69,244,1) 100%);" >
 
@@ -22,11 +22,11 @@ background: linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%
                 icon
                 x-large
                 v-on="on"
-                class="mb-0 mx-3"
+                class="mb-0 mx-0"
               >
                 <v-avatar
                   color="brown"
-                  size="60"
+                  size="50"
                 >
                   <img
                     src="https://cdn.vuetifyjs.com/images/john.jpg"
@@ -81,13 +81,13 @@ background: linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%
       </v-app-bar>
 
 
-    
-
+  
     <v-main class="grey lighten-3">
 
       <v-container>
         <v-row>
           <v-col
+            class="my-6"
             cols="12"
             sm="3"
           >
@@ -109,89 +109,136 @@ background: linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%
             cols="12"
             sm="6"
           >
-            <v-sheet
-              min-height="80vh"
-              rounded="lg"
-            >
-              <v-window v-model="step">
 
-                <v-window-item :value="1" >
-                  <card-component></card-component>
-                </v-window-item>
+              <v-window v-model="step" >
+                <div v-for="(user,i) in users">
+                  <v-window-item 
+                  :key="i"
+                  :value="i">
+                    <v-card
+                      class="mx-auto my-6"
+                      max-width="375"
 
-                <v-window-item :value="2" >
-                  <card-component></card-component>
-                </v-window-item>
+                  >                      
+                      <v-carousel hide-delimiters
+                      height="400">
+                          <v-carousel-item
+                          :key="i"
+                          :src="user.photo"
+                          ></v-carousel-item>
 
-                <v-window-item :value="3" >
-                  <card-component></card-component>
-                </v-window-item>
+                          
+                      </v-carousel>
 
+                    <v-card-title>{{user.name}} {{user.age}}
 
-              </v-window>
+                      <v-btn
+                        color="secondary"
+                        @click="hidden = !hidden"
+                        fab
+                        absolute
+                        small
+                        right
+                      >
+                        {{ hidden ? 'Show': 'Show' }}
+                      </v-btn>
 
-
-            <!-- Botones de interacción -->
-            
-                <div class="text-center">
+                    </v-card-title>
                     
-                    <v-btn
-                      class="mx-0"
-                      fab
-                      large
-                      
-                      color="#C5E1A5"
-                      :disabled="step === 1"
-                      @click="step--"
-                    >
-                      <v-icon color="white">
-                              mdi-arrow-left
-                      </v-icon>
-                    </v-btn>
                     
-                    <v-btn
-                      class="mx-1"
-                      fab
-                      large
                       
-                      color="#ff5094"
-                      :disabled="step === 4"
-                      @click="step++"
-                    >
-                      <v-icon color="white">
-                              mdi-window-close
-                      </v-icon>
-                    </v-btn>
-                    
-                    <v-btn
-                      class="mx-1"
-                      fab
-                      large
-                      color= #50bdff
-                      
-                      :disabled="step === 4"
-                      @click="step++"
-                    >
-                      <v-icon color="white">
-                              mdi-check
-                      </v-icon>
-                    </v-btn>
 
-                    <v-btn
-                      :disabled="step === 4"
-                      large
-                      class="mx-1"
-                      fab
-                      color="#cc5cff"
+                  
+                  <div v-show="!hidden">
+                    
+                      <v-card-text>
+                        <div>{{user.chats}}</div>
+                      </v-card-text>
+
+
+                      <v-card-text>
+                        <v-chip-group>
+                          <v-chip>{{user.interests}}</v-chip>
+
+                          <v-chip>{{user.sex}}</v-chip>
+
+                          <v-chip>
+                            <v-icon small>mdi-heart</v-icon> {{user.likes_recived}} </v-chip>
+                          </v-chip-group>
+                      </v-card-text>
+                  </div>
                       
-                      @click="step++"
-                    >
-                      <v-icon color="white">
-                              mdi-heart
-                      </v-icon>
-                    </v-btn>
+
+                        
+                      <v-card-text>
+                      <div class="text-center">
+                      <!--
+                      <v-btn
+                        class="mx-0"
+                        fab
+                        large
+                        
+                        color="#C5E1A5"
+                        :disabled="step === 1 "
+                        
+                        @click="step--"
+                      >
+                        <v-icon color="white">
+                                mdi-arrow-left
+                        </v-icon>
+                      </v-btn>
+                      -->
+                      <v-btn
+                        class="mx-1"
+                        fab
+                        large
+                        
+                        color="#ff5094"
+                        :disabled="step === users.length"
+                        @click="step++"
+                      >
+                        <v-icon color="white">
+                                mdi-window-close
+                        </v-icon>
+                      </v-btn>
+                      <!--
+                      <v-btn
+                        class="mx-1"
+                        fab
+                        large
+                        color= #50bdff
+                        
+                        :disabled="step === users.length"
+                        @click="step++"
+                      >
+                        <v-icon color="white">
+                                mdi-check
+                        </v-icon>
+                      </v-btn>
+                      -->
+                      <v-btn
+                        :disabled="step === users.length"
+                        large
+                        class="mx-1"
+                        fab
+                        color="#cc5cff"
+                        
+                        @click="step++"
+                      >
+                        <v-icon color="white">
+                                mdi-heart
+                        </v-icon>
+                      </v-btn>
+                      </div>
+                      </v-card-text>
+
+                    </v-card>
+                  </v-window-item>
+                  
                 </div>
-            </v-sheet>
+                
+              </v-window>
+        
           </v-col>
 
         </v-row>
@@ -200,6 +247,9 @@ background: linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%
 
     
     </v-main>
+
+
+
 
     <v-footer padless>
       <v-col
@@ -222,13 +272,26 @@ background: linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%
   export default {
     data: () => ({
       step: 1,
-      value:1,
+      value: 1,
       user: {
         initials: 'JD',
         fullName: 'John Doe',
         email: 'john.doe@doe.com',
       },
+      users: [],  
+      hidden:true,    
     }),
+    methods: {
+      getUsers(){
+        axios.get('/api/users')
+          .then((response) => {
+            this.users = response.data.data
+          })
+      }
+    },
+    mounted(){
+      this.getUsers()
+    }
   }
 </script>
 

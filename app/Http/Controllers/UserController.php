@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+
 use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
+
 
 use Illuminate\Http\Request;
 
@@ -12,8 +14,10 @@ class UserController extends Controller
 {
     //
     public function  index(){
-        $user = user::All();
-        return view('users.index')->with('user',$user);
+        //$user = user::All();
+        //return view('users.index')->with('user',$user);
+        //return User::all();
+        return UserResource::collection(User::all());
     }
 
     public function  create(){
@@ -58,10 +62,4 @@ class UserController extends Controller
         return $pdf-> download('user.pdf');
     }
 
-<<<<<<< HEAD
-
-
 }
-=======
-}
->>>>>>> c8be5a4971cebe8bad3fd8e370e9f2d942ec6b00

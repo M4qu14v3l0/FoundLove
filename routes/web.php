@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app');
+    return view('card');
 });
 
 Route::get('/home_layout', [App\Http\Controllers\HomeController::class, 'index'])-> name('homeLayout');
@@ -27,3 +27,5 @@ Route::post('/crud/update/{id}', [App\Http\Controllers\UserController::class, 'u
 Route::get('/crud/{id}/delete', [App\Http\Controllers\UserController::class, 'delete']);
 Route::get('/crud/export', [App\Http\Controllers\UserController::class, 'export']);
 Route::get('/crud/exportPDF', [App\Http\Controllers\UserController::class, 'exportPDF']);
+
+Route::get('/users/age', [App\Http\Controllers\DataController::class, 'extractAge']);
