@@ -24,8 +24,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('card-component', require('./components/cardComponent.vue').default);
 Vue.component('peopleDescription-component', require('./components/PeopleDescriptionComponent.vue').default);
 Vue.component('menu-component', require('./components/menuComponent.vue').default);
-
-
+Vue.component('orientacion-component', require('./components/OrientacionComponent.vue').default);
+Vue.component('sexo-component', require('./components/SexoComponent.vue').default);
+Vue.component('actividades-component', require('./components/ActividadesComponent.vue').default);
+Vue.component('name-component', require('./components/NameComponent.vue').default);
+Vue.component('correo-component', require('./components/CorreoComponent.vue').default);
+Vue.component('login-component', require('./components/LoginComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
