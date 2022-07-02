@@ -9,7 +9,7 @@ class DataController extends Controller
 {
     public function extractAge(){
 
-        $ages = User::select('age')->get();
+        $ages = $user = user::All();
         return $ages;
         
     }

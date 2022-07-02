@@ -31,15 +31,15 @@ export default class MinHeap{
     }
 
     leftChild(index){
-        return this.storage[this.getLeftChildIndex(index)];
+        return this.storage[this.getLeftChildIndex(index)].age;
     }
 
     rightChild(index){
-        return this.storage[this.getRightChildIndex(index)];
+        return this.storage[this.getRightChildIndex(index)].age;
     }
 
     parent(index){
-        return this.storage[this.getParentIndex(index)];
+        return this.storage[this.getParentIndex(index)].age;
     }
 
     isFull(){
@@ -64,9 +64,9 @@ export default class MinHeap{
 
     heapifyDown(index){
         let smallest = index;
-        if(this.hasLeftChild(index) && this.storage[smallest] > this.leftChild(index))
+        if(this.hasLeftChild(index) && this.storage[smallest].age > this.leftChild(index))
             smallest = this.getLeftChildIndex(index);
-        if(this.hasRightChild(index) && this.storage[smallest] > this.rightChild(index))
+        if(this.hasRightChild(index) && this.storage[smallest].age > this.rightChild(index))
             smallest = this.getRightChildIndex(index);
         if(smallest != index){
             this.swap(index,smallest);
@@ -81,39 +81,9 @@ export default class MinHeap{
     }
 
     heapifyUp(index){
-        if(this.hasParent(index) && this.parent(index) > this.storage[index]){ 
+        if(this.hasParent(index) && this.parent(index) > this.storage[index].age){ 
             this.swap(index,this.getParentIndex(index));
             this.heapifyUp(this.getParentIndex(index));
         }
     }
 }
-
-
-//obj1 = new MinHeap();
-
-
-//let valueList = [11 , 23 , 34 , 32 , 35 , 23 , 50 , 58 , 10] 
-
-// for( i in valueList){
-//     obj1.insert(valueList[i]);
-// }
-
-
-
-
-//let newList = []
-
-
-//for(i in valueList){
-//    newList.push(obj1.insert(valueList[i]))
-//}
-
-//console.log(newList)
-//console.log(obj1.storage)
-
-// parent index --> 
-//  [ (index - 1) / 2] 
-//  left child index -->
-// 2 * index + 1
-// right child index --> 
-// 2 * index + 2

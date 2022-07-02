@@ -80,14 +80,12 @@ background: linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%
  </v-app-bar>
 
 
-<v-main>
-  <div class="d-flex justify-space-around" >
-  <div v-for="n in 3" >
-    <v-card
-
-    
+<v-main class="grey lighten-3">
+  <div class="d-md-flex my-6 justify-center" >
+  <div v-for=" i in 3" >
+    <v-card 
+    class="ma-2"
     max-width="374"
-
     >
     <template slot="progress">
       <v-progress-linear
@@ -102,36 +100,33 @@ background: linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%
     <v-carousel hide-delimiters
     height="400">
         <v-carousel-item
-        
-        v-for="(item,i) in items"
         :key="i"
-        :src="item.src"
+        :src="array[i-1].photo"
         ></v-carousel-item>
     </v-carousel>
 
     
     
 
-    <v-card-title>Rodrigo Vargas</v-card-title>
+    <v-card-title>{{array[i-1].name}} {{array[i-1].age}}</v-card-title>
 
     <v-card-text>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut laboriosam error vitae quo voluptatum ad consequuntur inventore, quia consequatur.</div>
+      <div>{{array[i-1].chats}}</div>
     </v-card-text>
 
 
     <v-card-text>
       <v-chip-group
         v-model="selection"
-        active-class="deep-purple accent-4 white--text"
         column
       >
-        <v-chip>Eat</v-chip>
+        <v-chip>{{array[i-1].interests}}</v-chip>
 
-        <v-chip>Drink</v-chip>
+        <v-chip>{{array[i-1].sex}}</v-chip>
 
-        <v-chip>Watch TV</v-chip>
+        <v-chip><v-icon small>mdi-heart</v-icon> {{array[i-1].likes_recived}}</v-chip>
 
-        <v-chip>Cycling</v-chip>
+
       </v-chip-group>
     </v-card-text>
 
@@ -139,8 +134,6 @@ background: linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%
   </div>
   </div>
 </v-main>
-
-
 
 
 
@@ -172,7 +165,8 @@ import axios from "axios";
       },
       users: [],  
       hidden:true,
-      valueList: [],    
+      valueList: [], 
+      array: null,
     }),
     methods: {
       getUsers(){
@@ -186,25 +180,21 @@ import axios from "axios";
 
     async mounted(){
       this.getUsers();
-      //axios.get("http://127.0.0.1:8000/users/age").then((result) => {
-      let response = await axios.get('http://127.0.0.1:8000/users/age');
-      //this.skills = response
 
-      //console.log(result.data);
+
+      let response = await axios.get('http://127.0.0.1:8000/users/age');
+
       this.valueList=response.data;
       
-    
-    
-    let obj1 = new MinHeap();
-      let array_edades = [11 , 23 , 34 , 32 , 35 , 23 , 50 , 58 , 10] 
-      //console.log(array_edades)
-      //console.log(this.valueList)
-    for(let i in this.valueList){
-        obj1.insert(this.valueList[i].age)
-    }
 
-    //console.log(array_edades)
-    console.log(obj1.storage)
+      let array1 = new MinHeap();
+
+      for(let i in this.valueList){
+        array1.insert(this.valueList[i])
+      }
+
+      this.array = array1.storage;
+      console.log(array1.storage);
     }
   }
 </script>
