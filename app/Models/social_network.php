@@ -16,8 +16,4 @@ class social_network extends Model
         'link',
         'idSocial_networks_list',
     ];
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9ee65978fd616e3544f83fff25716d047ae9cbf2

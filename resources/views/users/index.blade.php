@@ -30,8 +30,8 @@
                 <td>{{$users->studies}}</td>
 
                 <td >
-                    <a href="crud/{{$users->_id}}/edit" type="button" class="btn btn-primary btn-sm">Edit</a>
-                    <a href="crud/{{$users->_id}}/delete" type="button" class=" btn btn-secondary btn-sm">Delete</a>
+                    <a href="crud/{{$users->id}}/edit" type="button" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="crud/{{$users->id}}/delete" type="button" class=" btn btn-secondary btn-sm">Delete</a>
                 </td>
 
 

@@ -5481,61 +5481,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6064,7 +6009,8 @@ var MinHeap = /*#__PURE__*/function () {
   _createClass(MinHeap, [{
     key: "getLeftChildIndex",
     value: function getLeftChildIndex(index) {
-      return 2 * index + 1;
+      // [0 , 2 ,3, 7 ,9 ,20] --> 0 -> 0 | 2 -> 1 | 3 -> 2 ---> 6 === 7  
+      return 2 * index + 1; //                                                      index(5)  index(6) index(7)
     }
   }, {
     key: "getRightChildIndex",
@@ -6117,29 +6063,27 @@ var MinHeap = /*#__PURE__*/function () {
       var temp = this.storage[index1];
       this.storage[index1] = this.storage[index2];
       this.storage[index2] = temp;
-    }
-  }, {
-    key: "removeMin",
-    value: function removeMin() {
-      if (this.size == 0) throw new Error("Empty Heap");
-      var data = this.storage[0];
-      this.storage[0] = this.storage[this.size - 1];
-      this.size -= 1;
-      this.heapifyDown(0);
-      return data;
-    }
-  }, {
-    key: "heapifyDown",
-    value: function heapifyDown(index) {
-      var smallest = index;
-      if (this.hasLeftChild(index) && this.storage[smallest].age > this.leftChild(index)) smallest = this.getLeftChildIndex(index);
-      if (this.hasRightChild(index) && this.storage[smallest].age > this.rightChild(index)) smallest = this.getRightChildIndex(index);
+    } // removeMin(){
+    //     if(this.size == 0)
+    //         throw new Error("Empty Heap");
+    //     let data = this.storage[0];
+    //     this.storage[0] = this.storage[this.size - 1];
+    //     this.size -= 1;
+    //     this.heapifyDown(0);
+    //     return data
+    // }
+    // heapifyDown(index){
+    //     let smallest = index;
+    //     if(this.hasLeftChild(index) && this.storage[smallest].age > this.leftChild(index))
+    //         smallest = this.getLeftChildIndex(index);
+    //     if(this.hasRightChild(index) && this.storage[smallest].age > this.rightChild(index))
+    //         smallest = this.getRightChildIndex(index);
+    //     if(smallest != index){
+    //         this.swap(index,smallest);
+    //         this.heapifyDown(smallest);
+    //     }
+    // }   
 
-      if (smallest != index) {
-        this.swap(index, smallest);
-        this.heapifyDown(smallest);
-      }
-    }
   }, {
     key: "insert",
     value: function insert(data) {
@@ -29379,12 +29323,7 @@ var render = function () {
               _c(
                 "v-menu",
                 {
-                  attrs: {
-                    bottom: "",
-                    "min-width": "200px",
-                    rounded: "",
-                    "offset-y": "",
-                  },
+                  attrs: { bottom: "", "min-width": "200px", rounded: "" },
                   scopedSlots: _vm._u([
                     {
                       key: "activator",
@@ -29408,7 +29347,6 @@ var render = function () {
                                   _c("img", {
                                     attrs: {
                                       src: "https://cdn.vuetifyjs.com/images/john.jpg",
-                                      alt: "John",
                                     },
                                   }),
                                 ]
@@ -29446,9 +29384,9 @@ var render = function () {
                               _vm._v(" "),
                               _c("p", { staticClass: "text-caption mt-1" }, [
                                 _vm._v(
-                                  "\n                    " +
+                                  "\n                  " +
                                     _vm._s(_vm.user.email) +
-                                    "\n                  "
+                                    "\n                "
                                 ),
                               ]),
                               _vm._v(" "),
@@ -29490,7 +29428,7 @@ var render = function () {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                    Disconnect\n                  "
+                                    "\n                  Disconnect\n                "
                                   ),
                                 ]
                               ),
@@ -29532,14 +29470,7 @@ var render = function () {
                   _c(
                     "v-col",
                     { staticClass: "my-6", attrs: { cols: "12", sm: "3" } },
-                    [
-                      _c(
-                        "v-sheet",
-                        { attrs: { rounded: "lg" } },
-                        [_c("menu-component")],
-                        1
-                      ),
-                    ],
+                    [_c("v-sheet", [_c("menu-component")], 1)],
                     1
                   ),
                   _vm._v(" "),
@@ -29583,7 +29514,6 @@ var render = function () {
                                         },
                                         [
                                           _c("v-carousel-item", {
-                                            key: i,
                                             attrs: { src: user.photo },
                                           }),
                                         ],
@@ -29597,7 +29527,7 @@ var render = function () {
                                             _vm._s(user.name) +
                                               " " +
                                               _vm._s(user.age) +
-                                              "\n\n                      "
+                                              "\n\n                    "
                                           ),
                                           _c(
                                             "v-btn",
@@ -29617,11 +29547,13 @@ var render = function () {
                                             },
                                             [
                                               _vm._v(
-                                                "\n                        " +
+                                                "\n                      " +
                                                   _vm._s(
-                                                    _vm.hidden ? "Show" : "Show"
+                                                    _vm.hidden
+                                                      ? "Show"
+                                                      : "Hidden"
                                                   ) +
-                                                  "\n                      "
+                                                  "\n                    "
                                               ),
                                             ]
                                           ),
@@ -29707,9 +29639,6 @@ var render = function () {
                                                   fab: "",
                                                   large: "",
                                                   color: "#ff5094",
-                                                  disabled:
-                                                    _vm.step ===
-                                                    _vm.users.length,
                                                 },
                                                 on: {
                                                   click: function ($event) {
@@ -29723,7 +29652,7 @@ var render = function () {
                                                   { attrs: { color: "white" } },
                                                   [
                                                     _vm._v(
-                                                      "\n                                mdi-window-close\n                        "
+                                                      "\n                              mdi-window-close\n                      "
                                                     ),
                                                   ]
                                                 ),
@@ -29736,9 +29665,6 @@ var render = function () {
                                               {
                                                 staticClass: "mx-1",
                                                 attrs: {
-                                                  disabled:
-                                                    _vm.step ===
-                                                    _vm.users.length,
                                                   large: "",
                                                   fab: "",
                                                   color: "#cc5cff",
@@ -29755,7 +29681,7 @@ var render = function () {
                                                   { attrs: { color: "white" } },
                                                   [
                                                     _vm._v(
-                                                      "\n                                mdi-heart\n                        "
+                                                      "\n                              mdi-heart\n                      "
                                                     ),
                                                   ]
                                                 ),
@@ -29786,30 +29712,6 @@ var render = function () {
               ),
             ],
             1
-          ),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-footer",
-        { attrs: { padless: "" } },
-        [
-          _c(
-            "v-col",
-            {
-              staticClass: "text-center",
-              staticStyle: {
-                background:
-                  "linear-gradient(142deg, rgba(42,193,255,1) 0%, rgba(40,95,255,1) 52%, rgba(239,69,244,1) 100%)",
-                color: "aliceblue",
-              },
-              attrs: { cols: "12" },
-            },
-            [
-              _vm._v("\n        " + _vm._s(new Date().getFullYear()) + " — "),
-              _c("strong", [_vm._v("foundLove")]),
-            ]
           ),
         ],
         1

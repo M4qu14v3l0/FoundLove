@@ -6,8 +6,8 @@ export default class MinHeap{
         this.size = 0;
     }
 
-    getLeftChildIndex(index){
-        return 2 * index + 1;
+    getLeftChildIndex(index){               // [0 , 2 ,3, 7 ,9 ,20] --> 0 -> 0 | 2 -> 1 | 3 -> 2 ---> 6 === 7  
+        return 2 * index + 1;             //                                                      index(5)  index(6) index(7)
     }
 
     getRightChildIndex(index){
@@ -52,27 +52,27 @@ export default class MinHeap{
         this.storage[index2] = temp;
     }
 
-    removeMin(){
-        if(this.size == 0)
-            throw new Error("Empty Heap");
-        let data = this.storage[0];
-        this.storage[0] = this.storage[this.size - 1];
-        this.size -= 1;
-        this.heapifyDown(0);
-        return data
-    }
+    // removeMin(){
+    //     if(this.size == 0)
+    //         throw new Error("Empty Heap");
+    //     let data = this.storage[0];
+    //     this.storage[0] = this.storage[this.size - 1];
+    //     this.size -= 1;
+    //     this.heapifyDown(0);
+    //     return data
+    // }
 
-    heapifyDown(index){
-        let smallest = index;
-        if(this.hasLeftChild(index) && this.storage[smallest].age > this.leftChild(index))
-            smallest = this.getLeftChildIndex(index);
-        if(this.hasRightChild(index) && this.storage[smallest].age > this.rightChild(index))
-            smallest = this.getRightChildIndex(index);
-        if(smallest != index){
-            this.swap(index,smallest);
-            this.heapifyDown(smallest);
-        }
-    }   
+    // heapifyDown(index){
+    //     let smallest = index;
+    //     if(this.hasLeftChild(index) && this.storage[smallest].age > this.leftChild(index))
+    //         smallest = this.getLeftChildIndex(index);
+    //     if(this.hasRightChild(index) && this.storage[smallest].age > this.rightChild(index))
+    //         smallest = this.getRightChildIndex(index);
+    //     if(smallest != index){
+    //         this.swap(index,smallest);
+    //         this.heapifyDown(smallest);
+    //     }
+    // }   
 
     insert(data){
         this.storage[this.size] = data; 

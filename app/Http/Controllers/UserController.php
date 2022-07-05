@@ -12,12 +12,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    //
+
     public function  index(){
-        //$user = user::All();
-        //return view('users.index')->with('user',$user);
-        //return User::all();
-        return UserResource::collection(User::all());
+        $user = user::All();
+        return view('users.index')->with('user',$user);
     }
 
     public function  create(){
@@ -28,6 +26,9 @@ class UserController extends Controller
     public function  insert( Request $request){
         $userNew = new  User();
         $userNew -> name = $request-> name;
+        $userNew -> email = $request-> email;
+        $userNew -> sex = $request-> sex;
+        $userNew -> age = $request-> age;
         $userNew -> save();
 
         return redirect('/crud');
@@ -39,6 +40,9 @@ class UserController extends Controller
     public function  update(Request $request , $id){
         $userEdited = user::find($id);
         $userEdited -> name = $request-> name;
+        $userEdited -> email = $request-> email;
+        $userEdited -> sex = $request-> sex;
+        $userEdited -> age = $request-> age;
         $userEdited -> save();
         return redirect('/crud');
 
@@ -46,7 +50,6 @@ class UserController extends Controller
 
     public function  delete(Request $request , $id){
         $userDelete = user::find($id);
-
         $userDelete -> delete();
         return redirect('/crud');
 
@@ -61,8 +64,4 @@ class UserController extends Controller
         $pdf = PDF::loadView('pdf\users',['user'=>$user]);
         return $pdf-> download('user.pdf');
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 48a56c040cfb2e3e14b5b65e5cefc5520d5fc7c9
 }

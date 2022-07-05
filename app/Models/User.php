@@ -20,7 +20,7 @@ class User extends MongoModel implements Authenticatable
      *
      * @var array<int, string,date>
      */
-    protected $primaryKey= 'idUser';
+    protected $primaryKey= '_id';
     protected $table='users';
     protected $fillable = [
         'name',
