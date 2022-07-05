@@ -34,3 +34,5 @@ Route::get('/crud/export', [App\Http\Controllers\UserController::class, 'export'
 Route::get('/crud/exportPDF', [App\Http\Controllers\UserController::class, 'exportPDF']);
 
 Route::get('/users/age', [App\Http\Controllers\DataController::class, 'extractAge']);
+
+Route::post('/login', [App\Http\Controllers\LoginController::class, 'login']);
